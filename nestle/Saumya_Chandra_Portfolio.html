@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumya T. Chandra — Work Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1108;
+    --cream: #f7f3ec;
+    --warm: #f0e8d8;
+    --gold: #b8872a;
+    --gold-light: #d4a84b;
+    --rust: #9b3a1a;
+    --muted: #7a6e62;
+    --rule: #d9cfc2;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 64px 80px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--rust), var(--gold-light));
+  }
+
+  .masthead-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .masthead-tagline {
+    font-size: 16px;
+    color: #b0a898;
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .masthead-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .meta-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .meta-value {
+    font-size: 14px;
+    color: var(--cream);
+  }
+
+  /* STAT STRIP */
+  .stat-strip {
+    background: var(--gold);
+    padding: 20px 80px;
+  }
+
+  .stat-strip-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .stat-desc {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(26,17,8,0.2);
+  }
+
+  /* MAIN */
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 80px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    padding-top: 64px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: -20px;
+    margin-bottom: 32px;
+    padding-left: 0;
+    max-width: 560px;
+  }
+
+  /* NESTLE FEATURE */
+  .nestle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .nestle-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 28px;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nestle-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+    transform-origin: bottom;
+  }
+
+  .nestle-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .nestle-card:hover::before { transform: scaleY(1); }
+
+  .nestle-card.featured {
+    grid-column: 1 / -1;
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .nestle-card.featured::before { background: var(--gold-light); }
+
+  .card-outlet {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .nestle-card.featured .card-outlet { color: var(--gold-light); }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .card-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .nestle-card.featured .card-desc { color: #a09585; }
+
+  .card-arrow {
+    font-size: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* PODCAST GRID */
+  .podcast-hero {
+    background: var(--ink);
+    padding: 36px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    text-decoration: none;
+    color: var(--cream);
+    transition: opacity 0.2s;
+  }
+
+  .podcast-hero:hover { opacity: 0.9; }
+
+  .podcast-icon {
+    width: 72px;
+    height: 72px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .podcast-hero-text .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .podcast-hero-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .podcast-hero-text p {
+    font-size: 13px;
+    color: #a09585;
+  }
+
+  .podcast-episodes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .episode-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: all 0.2s ease;
+  }
+
+  .episode-card:hover { background: var(--warm); border-color: var(--gold); }
+
+  .ep-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--rule);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px;
+  }
+
+  .ep-content {}
+
+  .ep-guest {
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+
+  .ep-topic {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .ep-org {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* BYLINES */
+  .byline-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .byline-card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 28px 24px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .byline-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .outlet-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .outlet-logo.mint { color: #006241; }
+  .outlet-logo.cnbc { color: #cc0000; }
+  .outlet-logo.forbes { color: #1a1a1a; }
+
+  .byline-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .byline-link {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* SUBSTACK */
+  .substack-card {
+    background: linear-gradient(135deg, #ff6719 0%, #cc4400 100%);
+    padding: 36px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: opacity 0.2s;
+  }
+
+  .substack-card:hover { opacity: 0.93; }
+
+  .substack-icon {
+    font-size: 48px;
+    flex-shrink: 0;
+  }
+
+  .substack-text .label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 8px;
+  }
+
+  .substack-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .substack-text p {
+    font-size: 13px;
+    opacity: 0.85;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 40px 80px;
+    margin-top: 80px;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .footer-contact {
+    font-size: 13px;
+    color: #a09585;
+  }
+
+  .footer-contact a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  @media (max-width: 700px) {
+    .masthead, main, footer { padding-left: 24px; padding-right: 24px; }
+    .stat-strip { padding-left: 24px; padding-right: 24px; }
+    .nestle-grid, .podcast-episodes, .byline-row { grid-template-columns: 1fr; }
+    .nestle-card.featured { grid-template-columns: 1fr; }
+    .stat-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">Editorial & Communications Portfolio</p>
+    <h1>Saumya T. Chandra</h1>
+    <p class="masthead-tagline">Former business journalist turned communications director. A decade of stories, interviews, and campaigns across India's leading media and global agency brands.</p>
+    <div class="masthead-meta">
+      <div class="meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Berlin, Germany</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Contact</span>
+        <span class="meta-value">tcsaumya@gmail.com</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">LinkedIn</span>
+        <span class="meta-value">linkedin.com/in/tsaumya</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="stat">
+      <span class="stat-num">10+</span>
+      <span class="stat-desc">Years in Media & Comms</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">15K+</span>
+      <span class="stat-desc">Podcast Views</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-desc">CEOs — Executive Messaging</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <span class="stat-desc">National Publications</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- NESTLÉ COVERAGE -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Nestlé India Coverage</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="section-desc">Interviews and features on Nestlé India's marketing strategy, campaigns, and leadership — published across Mint, Forbes India, and afaqs!</p>
+
+    <div class="nestle-grid">
+
+      <a href="https://www.forbesindia.com/article/storyboard18/factsbased-content-creators-are-becoming-celebrities-nestles-rajat-jain/87511/1" target="_blank" class="nestle-card featured">
+        <div>
+          <p class="card-outlet">Forbes India / Storyboard18</p>
+          <h3 class="card-title">"Facts-based content creators are becoming celebrities" — Rajat Jain, Head of Foods & Maggi, Nestlé India</h3>
+          <p class="card-desc">An in-depth interview on the rise of credible content creators and Nestlé's evolving approach to digital marketing and consumer trust.</p>
+        </div>
+        <span class="card-arrow">→</span>
+      </a>
+
+      <a href="https://www.livemint.com/Consumer/7mlDO9cIEOHJk7Qt1qblnN/Maggi-turns-35-in-India-tweaks-ad-strategy-to-become-transp.html" target="_blank" class="nestle-card">
+        <p class="card-outlet">Mint</p>
+        <h3 class="card-title">Maggi turns 35 — tweaking ad strategy for transparency</h3>
+        <p class="card-desc">Interview with Maarten Geraets, General Manager, Foods, Nestlé India on brand evolution and advertising shifts.</p>
+      </a>
+
+      <a href="https://www.livemint.com/companies/news/hygiene-safety-key-as-nestle-campaign-promises-to-bring-maggi-back-in-market-11585894415226.html" target="_blank" class="nestle-card">
+        <p class="card-outlet">Mint</p>
+        <h3 class="card-title">Hygiene & safety key as Nestlé campaign brings Maggi back</h3>
+        <p class="card-desc">Coverage of Nestlé's brand recovery strategy following the Maggi crisis — one of India's biggest FMCG comeback stories.</p>
+      </a>
+
+      <a href="https://www.afaqs.com/news/other/45265_pov-can-the-right-creative-brief-salvage-brand-maggi" target="_blank" class="nestle-card">
+        <p class="card-outlet">afaqs!</p>
+        <h3 class="card-title">POV: Can the right creative brief salvage Brand Maggi?</h3>
+        <p class="card-desc">Analysis of the creative communications challenge Nestlé faced in rebuilding consumer trust for its flagship brand.</p>
+      </a>
+
+      <a href="https://www.forbesindia.com/article/storyboard18/the-great-skill-reset-how-are-companies-hiring-for-marketing-and-brand-roles-these-days/77917/1" target="_blank" class="nestle-card">
+        <p class="card-outlet">Forbes India / Storyboard18</p>
+        <h3 class="card-title">The Great Skill Reset — hiring for marketing & brand roles</h3>
+        <p class="card-desc">Interview with Anurag Patnaik, Director of Human Resources, Nestlé India on talent strategy and marketing capability building.</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Founders Spotlight Podcast</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="section-desc">Produced, shot, and edited independently. 15,000+ views across platforms. Conversations with founders and leaders at the India–Europe intersection.</p>
+
+    <a href="https://www.youtube.com/playlist?list=PL-VRLpn4hfsHXSXzmmyN8MDWLT5pnY2oA" target="_blank" class="podcast-hero">
+      <div class="podcast-icon">▶</div>
+      <div class="podcast-hero-text">
+        <p class="label">BERLIndians — Full Playlist</p>
+        <h3>Founders Spotlight Series</h3>
+        <p>Watch all episodes on YouTube — 15,000+ views and counting</p>
+      </div>
+    </a>
+
+    <div class="podcast-episodes">
+      <a href="https://www.youtube.com/watch?v=K8qXJO5oICo" target="_blank" class="episode-card">
+        <span class="ep-num">01</span>
+        <div class="ep-content">
+          <p class="ep-guest">Nithin Kamath</p>
+          <p class="ep-topic">Regulating finfluencers</p>
+          <p class="ep-org">CEO, Zerodha</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=jwkzCzXb3Mc" target="_blank" class="episode-card">
+        <span class="ep-num">02</span>
+        <div class="ep-content">
+          <p class="ep-guest">Kate Beddoe</p>
+          <p class="ep-topic">Google's fight against misinformation</p>
+          <p class="ep-org">Google</p>
+        </div>
+      </a>
+      <a href="http://youtube.com/watch?v=wdekWyo6qXE" target="_blank" class="episode-card">
+        <span class="ep-num">03</span>
+        <div class="ep-content">
+          <p class="ep-guest">Vishal Dhupar</p>
+          <p class="ep-topic">AI disrupting advertising & the WPP deal</p>
+          <p class="ep-org">MD Asia South, NVIDIA</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=Q17smiO5Yng" target="_blank" class="episode-card">
+        <span class="ep-num">04</span>
+        <div class="ep-content">
+          <p class="ep-guest">Musthafa PC</p>
+          <p class="ep-topic">Safe ingredients & building consumer trust</p>
+          <p class="ep-org">Chairman & CEO, iD Fresh Food</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=UfUQMwVQYf4" target="_blank" class="episode-card">
+        <span class="ep-num">05</span>
+        <div class="ep-content">
+          <p class="ep-guest">Pullela Gopichand</p>
+          <p class="ep-topic">Sports sponsorship & women athletes</p>
+          <p class="ep-org">Chief National Badminton Coach, India</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=U0k6psuL2b0" target="_blank" class="episode-card">
+        <span class="ep-num">06</span>
+        <div class="ep-content">
+          <p class="ep-guest">Prashant Pitti</p>
+          <p class="ep-topic">AI impact on travel & influencer power</p>
+          <p class="ep-org">Co-founder, EaseMyTrip</p>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/watch?v=ymw6kOXglfM" target="_blank" class="episode-card">
+        <span class="ep-num">07</span>
+        <div class="ep-content">
+          <p class="ep-guest">Vidit Aatrey</p>
+          <p class="ep-topic">Brand revamp, regulations & influencers</p>
+          <p class="ep-org">Founder & CEO, Meesho</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Newsletter</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <a href="https://substack.com/home/post/p-199904897" target="_blank" class="substack-card">
+      <div class="substack-icon">✉</div>
+      <div class="substack-text">
+        <p class="label">Monthly — Substack</p>
+        <h3>BERLIndians Newsletter</h3>
+        <p>Long-form dispatches connecting the Indian and European startup ecosystem — founders, ideas, and cross-border opportunities.</p>
+      </div>
+    </a>
+  </section>
+
+  <!-- BYLINES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Published Bylines</h2>
+      <div class="section-rule"></div>
+    </div>
+    <p class="section-desc">A decade of business journalism across India's most respected publications.</p>
+
+    <div class="byline-row">
+      <a href="https://www.livemint.com/authors/saumya-tewari" target="_blank" class="byline-card">
+        <div class="outlet-logo mint">Mint</div>
+        <p class="byline-desc">India's leading financial daily. Coverage of business, brands, marketing strategy, and corporate affairs across five years as Assistant Editor.</p>
+        <span class="byline-link">View all stories →</span>
+      </a>
+      <a href="https://www.cnbctv18.com/author/saumya-tewari-12152/" target="_blank" class="byline-card">
+        <div class="outlet-logo cnbc">CNBC TV-18</div>
+        <p class="byline-desc">Digital editorial for Storyboard18 — India's leading platform for the advertising and marketing industry. Daily content, video interviews, and analysis.</p>
+        <span class="byline-link">View all stories →</span>
+      </a>
+      <a href="https://www.forbesindia.com/author/saumya-tewari/5739" target="_blank" class="byline-card">
+        <div class="outlet-logo forbes">Forbes India</div>
+        <p class="byline-desc">Features and interviews on business strategy, leadership, and brand — including multiple Nestlé India executive interviews.</p>
+        <span class="byline-link">View all stories →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-name">Saumya T. Chandra</p>
+      <p class="footer-contact">Editorial & Communications Professional — Berlin</p>
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:tcsaumya@gmail.com">tcsaumya@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/tsaumya" target="_blank">LinkedIn</a> &nbsp;·&nbsp;
+      +49 17679787661
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
