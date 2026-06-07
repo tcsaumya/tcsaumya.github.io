@@ -342,44 +342,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
-      align-items: center;
+      align-items: start;
     }
 
     .about-image-wrap {
       position: relative;
-    }
-
-    .about-image-placeholder {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--sand) 0%, var(--sand-dark) 100%);
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Lora', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--brown-light);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-image-placeholder::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.3) 0%, transparent 60%);
-    }
-
-    .about-image-deco {
-      position: absolute;
-      bottom: -20px; right: -20px;
-      width: 140px; height: 140px;
-      border: 2px solid var(--sand-dark);
-      border-radius: 16px;
-      z-index: -1;
     }
 
     .about-text h2 { margin-bottom: 1.2rem; }
@@ -586,8 +553,7 @@
   <section id="about">
     <div class="about-wrap">
       <div class="about-image-wrap">
-        <img src="saumya.jpeg" alt="Samya Tewari" style="width:60%;object-fit:cover;border-radius:50%;display:block;aspect-ratio:1/1;margin:0 auto;" />
-        <div class="about-image-deco"></div>
+        <img src="saumya.jpeg" alt="Samya Tewari" style="width:60%;object-fit:cover;border-radius:50%;display:block;aspect-ratio:1/1;margin:0 auto;border:3px solid var(--sand-dark);" />
       </div>
       <div class="about-text">
         <div class="section-label">About me</div>
