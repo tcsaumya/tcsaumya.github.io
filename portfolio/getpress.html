@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumya T. Chandra — Work Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,700&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #111010;
+  --off: #1c1b1a;
+  --white: #fafaf8;
+  --warm: #f3f0e8;
+  --rule: #e0dbd0;
+  --muted: #888078;
+  --accent: #c45c1a;
+  --accent-light: #f4dece;
+  --ink: #2a2724;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--black);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+}
+
+.hero-left {
+  padding: 72px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #2e2c2a;
+}
+
+.hero-right {
+  padding: 72px 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-eyebrow {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.hero h1 em {
+  font-weight: 300;
+  font-style: italic;
+  color: #a09585;
+}
+
+.hero-title {
+  font-size: 14px;
+  color: #7a7068;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.hero-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-contact a {
+  font-size: 13px;
+  color: #7a7068;
+  transition: color 0.15s;
+}
+.hero-contact a:hover { color: var(--accent); }
+
+.hero-intro {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: #c8bfb2;
+  margin-bottom: 40px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.stat-block {}
+
+.stat-n {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+
+.stat-l {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6a6058;
+  margin-top: 4px;
+}
+
+/* ── ACCENT BAR ── */
+.accent-bar {
+  background: var(--accent);
+  height: 4px;
+}
+
+/* ── SECTION ── */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 64px 0;
+}
+
+.section:last-of-type { padding-bottom: 80px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-num {
+  font-family: 'Fraunces', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  min-width: 24px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  padding-left: 44px;
+}
+
+/* ── NESTLÉ GRID ── */
+.nestle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.n-card {
+  background: var(--white);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.18s;
+  position: relative;
+}
+
+.n-card:hover { background: var(--warm); }
+
+.n-card.hero-card {
+  grid-column: 1 / -1;
+  background: var(--off);
+  color: var(--white);
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.n-card.hero-card:hover { background: #242321; }
+
+.n-card.hero-card .n-outlet { color: var(--accent); }
+.n-card.hero-card .n-title { color: var(--white); }
+.n-card.hero-card .n-desc { color: #807870; }
+
+.n-outlet {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.n-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  flex: 1;
+}
+
+.n-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.n-arrow {
+  font-size: 18px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.n-card:hover .n-arrow { opacity: 1; transform: translateX(3px); }
+.n-card.hero-card .n-arrow { opacity: 0.4; }
+.n-card.hero-card:hover .n-arrow { opacity: 1; }
+
+/* ── PODCAST ── */
+.podcast-wrap {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.podcast-sidebar {
+  background: var(--black);
+  color: var(--white);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.podcast-logo {
+  width: 64px;
+  height: 64px;
+  background: var(--accent);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 22px solid white;
+  margin-left: 4px;
+}
+
+.podcast-sidebar h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.podcast-sidebar p {
+  font-size: 13px;
+  color: #7a7068;
+  line-height: 1.5;
+}
+
+.podcast-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+
+.podcast-cta:hover { background: #a84b15; }
+
+.episodes-grid {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+}
+
+.ep {
+  background: var(--white);
+  padding: 22px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: background 0.15s;
+}
+
+.ep:hover { background: var(--warm); }
+
+.ep-num {
+  font-family: 'Fraunces', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--rule);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 38px;
+}
+
+.ep-guest {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.ep-topic {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.ep-org {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-top: 5px;
+  letter-spacing: 0.04em;
+}
+
+/* ── NEWSLETTER ── */
+.newsletter-card {
+  background: var(--warm);
+  border: 1px solid var(--rule);
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 32px;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.newsletter-card:hover { background: #ede8dc; }
+
+.nl-icon {
+  width: 56px;
+  height: 56px;
+  background: #ff6719;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.nl-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.nl-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.nl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.nl-btn {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nl-btn:hover { background: var(--ink); color: var(--white); }
+
+/* ── BYLINES ── */
+.bylines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.bl-card {
+  background: var(--white);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background 0.15s;
+}
+
+.bl-card:hover { background: var(--warm); }
+
+.bl-name {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.bl-name.mint { color: #006241; }
+.bl-name.cnbc { color: #c0392b; }
+.bl-name.forbes { color: var(--ink); }
+
+.bl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.bl-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bl-link::after { content: '→'; transition: transform 0.15s; }
+.bl-card:hover .bl-link::after { transform: translateX(4px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 40px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 80px;
+}
+
+.footer-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-size: 13px;
+  color: #6a6058;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { border-right: none; border-bottom: 1px solid #2e2c2a; padding: 48px 28px 40px; }
+  .hero-right { padding: 40px 28px 48px; }
+  .section { padding: 56px 24px 0; }
+  .section-sub { padding-left: 0; }
+  .nestle-grid, .episodes-grid, .bylines-grid { grid-template-columns: 1fr; }
+  .n-card.hero-card { flex-direction: column; gap: 16px; }
+  .podcast-wrap { grid-template-columns: 1fr; }
+  .newsletter-card { grid-template-columns: 1fr; text-align: center; }
+  .nl-icon { margin: 0 auto; }
+  footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-left">
+    <div>
+      <p class="hero-eyebrow">Editorial & Communications Portfolio</p>
+      <h1>Saumya T.<br><em>Chandra</em></h1>
+      <p class="hero-title">Former business journalist · Content strategist<br>Podcast producer · Berlin-based</p>
+    </div>
+    <div class="hero-contact">
+      <a href="mailto:tcsaumya@gmail.com">tcsaumya@gmail.com</a>
+      <a href="https://linkedin.com/in/tsaumya" target="_blank">linkedin.com/in/tsaumya</a>
+      <a href="tel:+4917679787661">+49 176 7978 7661</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-intro">"A decade of business journalism — then built a podcast, a newsletter, and a community from scratch."</p>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-n">10+</div>
+        <div class="stat-l">Years in Media</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">15K+</div>
+        <div class="stat-l">Podcast Views</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-n">4</div>
+        <div class="stat-l">CEOs — Exec Comms</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="accent-bar"></div>
+
+<!-- PODCAST -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Founders Spotlight Podcast</h2>
+  </div>
+  <p class="section-sub">Conceived, produced, filmed, and edited entirely in-house. Guest research, briefings, post-production, scheduling, and social distribution — all solo. 15,000+ views across platforms.</p>
+
+  <div class="podcast-wrap">
+    <div class="podcast-sidebar">
+      <div class="podcast-logo">
+        <div class="play-icon"></div>
+      </div>
+      <h3>Founders Spotlight</h3>
+      <p>Conversations at the intersection of India and Europe's startup ecosystems — produced independently for BERLIndians, Berlin.</p>
+      <p style="color:#4a4540; font-size:12px; font-weight:500; letter-spacing:0.05em;">PRODUCED · SHOT · EDITED · PUBLISHED</p>
+      <a href="https://www.youtube.com/playlist?list=PL-VRLpn4hfsHXSXzmmyN8MDWLT5pnY2oA" target="_blank" class="podcast-cta">Watch all episodes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Newsletter</h2>
+  </div>
+  <p class="section-sub">Monthly long-form dispatches on founders, ideas, and cross-border opportunities across the India–Europe startup world.</p>
+
+  <a href="https://substack.com/home/post/p-199904897" target="_blank" class="newsletter-card">
+    <div class="nl-icon">✉</div>
+    <div>
+      <p class="nl-label">Monthly · Substack · BERLIndians</p>
+      <h3 class="nl-title">BERLIndians Newsletter</h3>
+      <p class="nl-desc">Original long-form content connecting founders, investors, and community across India and Europe. Written, edited, and published independently.</p>
+    </div>
+    <span class="nl-btn">Read it →</span>
+  </a>
+</section>
+
+<!-- STORYBOARD18 VIDEOS -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Storyboard18 Video Interviews</h2>
+  </div>
+  <p class="section-sub">CEO and industry leader interviews produced for CNBC's Storyboard18 — India's leading platform for advertising, marketing, and media.</p>
+
+  <div class="nestle-grid">
+
+    <a href="https://www.youtube.com/watch?v=K8qXJO5oICo" target="_blank" class="n-card hero-card">
+      <div style="flex:1">
+        <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+        <h3 class="n-title">Nithin Kamath on regulating finfluencers — CEO, Zerodha</h3>
+        <p class="n-desc">A candid conversation with India's most prominent retail brokerage founder on the regulatory future of financial influencers.</p>
+      </div>
+      <span class="n-arrow">→</span>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=jwkzCzXb3Mc" target="_blank" class="n-card">
+      <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+      <h3 class="n-title">Kate Beddoe on Google's fight against misinformation</h3>
+      <p class="n-desc">How Google is building systems and initiatives to tackle the spread of false information at scale.</p>
+      <span class="n-arrow">→</span>
+    </a>
+
+    <a href="http://youtube.com/watch?v=wdekWyo6qXE" target="_blank" class="n-card">
+      <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+      <h3 class="n-title">Vishal Dhupar, NVIDIA — AI disrupting advertising & the WPP deal</h3>
+      <p class="n-desc">MD Asia South on how AI is reshaping advertising and what NVIDIA's partnership with WPP means for the industry.</p>
+      <span class="n-arrow">→</span>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=ymw6kOXglfM" target="_blank" class="n-card">
+      <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+      <h3 class="n-title">Vidit Aatrey, Meesho — brand revamp, regulation & influencers</h3>
+      <p class="n-desc">Founder & CEO of one of India's fastest-growing e-commerce platforms on rebuilding brand identity and navigating policy.</p>
+      <span class="n-arrow">→</span>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=Q17smiO5Yng" target="_blank" class="n-card">
+      <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+      <h3 class="n-title">Musthafa PC, iD Fresh Food — safe ingredients & consumer trust</h3>
+      <p class="n-desc">Chairman & CEO on building a premium brand through radical transparency about ingredients and production.</p>
+      <span class="n-arrow">→</span>
+    </a>
+
+    <a href="https://www.youtube.com/watch?v=U0k6psuL2b0" target="_blank" class="n-card">
+      <p class="n-outlet">Storyboard18 · CNBC TV-18</p>
+      <h3 class="n-title">Prashant Pitti, EaseMyTrip — AI's impact on travel</h3>
+      <p class="n-desc">Co-founder on how AI and influencer culture are transforming how Indians plan and book travel.</p>
+      <span class="n-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- PUBLISHED BYLINES -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Published Bylines</h2>
+  </div>
+  <p class="section-sub">A decade of business journalism across India's most respected publications — brands, corporate strategy, marketing, and policy.</p>
+
+  <div class="bylines-grid">
+
+    <a href="https://www.livemint.com/authors/saumya-tewari" target="_blank" class="bl-card">
+      <div class="bl-name mint">Mint</div>
+      <p class="bl-desc">India's leading financial daily. Five years as Assistant Editor — covering business, brands, corporate strategy, and policy-adjacent reporting. Includes multiple Nestlé India features.</p>
+      <span class="bl-link">Browse all stories</span>
+    </a>
+
+    <a href="https://www.cnbctv18.com/author/saumya-tewari-12152/" target="_blank" class="bl-card">
+      <div class="bl-name cnbc">CNBC TV-18</div>
+      <p class="bl-desc">Editorial lead at Storyboard18 — India's go-to platform for the advertising and marketing industry. Daily content, video scripts, and CEO interviews from digital launch.</p>
+      <span class="bl-link">Browse all stories</span>
+    </a>
+
+    <a href="https://www.forbesindia.com/author/saumya-tewari/5739" target="_blank" class="bl-card">
+      <div class="bl-name forbes">Forbes India</div>
+      <p class="bl-desc">Features and interviews on business strategy, leadership, and brand. Includes multiple Nestlé India executive interviews and the Storyboard18 Skill Reset series.</p>
+      <span class="bl-link">Browse all stories</span>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <p class="footer-name">Saumya T. Chandra</p>
+    <p style="font-size:13px; color:#4a4540; margin-top:4px;">Editorial & Communications · Berlin</p>
+  </div>
+  <div class="footer-links">
+    <a href="mailto:tcsaumya@gmail.com">tcsaumya@gmail.com</a>
+    <a href="https://linkedin.com/in/tsaumya" target="_blank">LinkedIn</a>
+    <a href="https://www.youtube.com/playlist?list=PL-VRLpn4hfsHXSXzmmyN8MDWLT5pnY2oA" target="_blank">Podcast</a>
+    <a href="https://substack.com/home/post/p-199904897" target="_blank">Newsletter</a>
+  </div>
+</footer>
+
+</body>
+</html>
